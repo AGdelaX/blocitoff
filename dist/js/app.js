@@ -5,7 +5,7 @@ var blocItOff = angular.module('BlocItOff', ['firebase', 'ui.router']);
 
 blocItOff.factory('Tasks', ['$firebaseArray', function($firebaseArray, $scope){
 	var firebaseRef = new Firebase('https://shining-torch-9429.firebaseio.com/');
-	var tasklist = $firebaseArray(firebaseRef.child('tasklist'));
+	var tasklist = $firebaseArray(firebaseRef.child('tasks'));
 
 	return {
 		tasks: tasklist
@@ -13,11 +13,13 @@ blocItOff.factory('Tasks', ['$firebaseArray', function($firebaseArray, $scope){
 }]);
 
 blocItOff.run(function(){
-	console.log("running");
+	console.log(new Date().getSeconds());
 });
 
 blocItOff.config(function($stateProvider, $locationProvider){
+
 	$locationProvider.html5Mode(true);
+
 	// $urlRouterProvider.otherwise('/');
 
 	$stateProvider
@@ -28,8 +30,30 @@ blocItOff.config(function($stateProvider, $locationProvider){
 	})
 });
 
-blocItOff.controller('TasklistView', ['$scope', 'Tasks', function($scope, Tasks){
+blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($scope, Tasks, $timeout){
+
 	$scope.tasklist = Tasks.tasks;
+
 	$scope.message = "testing";
+	$scope.hideTime = false;
+
+	$scope.taskForm = null;
+
+	console.log(Date.now());
+	console.log(Tasks.tasks);
+
+	$scope.currentTime = Date.now();
+
+	// $scope.createTask = function(){
+	// 	$scope.tasklist.$add($scope.taskForm);
+	// 	$timeout(function(){
+	// 	$scope.hideTime = true;
+	// }, 4000);
+	// };
+
+	// if Date.now > scope.timeTaskWasMade+timePassed
+	// 	hide
+	
+
 }]);
 },{}]},{},[1]);
