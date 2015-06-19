@@ -38,25 +38,36 @@ blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($s
 
 	$scope.tasklist = Tasks.tasks;
 
-	$scope.message = "testing";
+	// $scope.message = "testing";
 	$scope.hideTime = false;
 
 	$scope.taskForm = null;
 
-	console.log(Date.now());
-	console.log(Tasks.tasks);
+	// console.log(Date.now());
+	// console.log(Tasks.tasks);
 
-	$scope.currentTime = Date.now();
+	$scope.expirationDate = Date.now();
 
-	// $scope.createTask = function(){
-	// 	$scope.tasklist.$add($scope.taskForm);
-	// 	$timeout(function(){
-	// 	$scope.hideTime = true;
-	// }, 4000);
-	// };
+	$scope.prioritySelector = null;
+
+	$scope.createTask = function(){
+
+		var currentTime = Date.now();
+
+		// var week = 60 * 60 * 24 * 7;
+
+		$scope.tasklist.$add( {
+			body: $scope.taskForm,
+			timestamp: currentTime + 60000,
+			priority: $scope.prioritySelector
+		});
+
+
+	};
 
 	// if Date.now > scope.timeTaskWasMade+timePassed
 	// 	hide
+
 	
 
 }]);

@@ -1,7 +1,14 @@
+<input type="text" ng-model="taskForm">
+<select ng-model="prioritySelector">
+	<option value="null">Select Priority</option>
+	<option value="high">High</option>
+	<option value="medium">Medium</option>
+	<option value="low">Low</option>
+</select>
+<button ng-click="createTask()">Create</button>
+
 <div class="tasklist-body">
 	<ul ng-repeat="task in tasklist">
-		<li ng-hide="task.timestamp < currentTime"> {{ task.body }} </li>
+		<li ng-hide="task.timestamp < expirationDate"> {{ task.body }} </li>
 	</ul>
-<!-- <input type="text" ng-model="taskForm">
-<button ng-click="createTask()">Create</button> -->
 </div>
