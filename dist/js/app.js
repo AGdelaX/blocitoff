@@ -28,6 +28,11 @@ blocItOff.config(function($stateProvider, $locationProvider){
 		controller: 'TasklistView',
 		templateUrl: '/templates/home.html'
 	})
+	.state('history', {
+		url: "/history",
+		controller: 'TasklistView',
+		templateUrl: '/templates/history.html'
+	})
 });
 
 blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($scope, Tasks, $timeout){
