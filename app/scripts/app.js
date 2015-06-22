@@ -50,19 +50,38 @@ blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($s
 
 	$scope.prioritySelector = null;
 
+	var week = 60 * 60 * 24 * 7;
+
 	$scope.createTask = function(){
 
 		var currentTime = Date.now();
 
-		// var week = 60 * 60 * 24 * 7;
+		
 
 		$scope.tasklist.$add( {
 			body: $scope.taskForm,
+			completed: false,
 			timestamp: currentTime + 60000,
 			priority: $scope.prioritySelector
 		});
 
 
+	};
+
+
+	$scope.completeTask = function (task) {
+
+		console.log('before', $scope.tasklist);
+
+		task.completed = true;
+
+		// task.timestamp = Date.now() + 100;
+
+		$scope.tasklist.$save(task);
+
+		console.log('after', $scope.tasklist);
+
+		
 	};
 
 	// if Date.now > scope.timeTaskWasMade+timePassed

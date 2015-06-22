@@ -21,6 +21,16 @@
 	<div class="header">
 		<h1>Current tasks</h1>
 	</div>
+<div id="form" ng-controller="TasklistView">
+	<input type="text" ng-model="taskForm">
+<select ng-model="prioritySelector">
+	<option value="null">Select Priority</option>
+	<option value="high">High</option>
+	<option value="medium">Medium</option>
+	<option value="low">Low</option>
+</select>
+<button ng-click="createTask()">Create</button>
+</div>
 
 	<div ui-view></div>
 

@@ -1,14 +1,9 @@
-<input type="text" ng-model="taskForm">
-<select ng-model="prioritySelector">
-	<option selected disabled>Select Priority</option>
-	<option value="high">High</option>
-	<option value="medium">Medium</option>
-	<option value="low">Low</option>
-</select>
-<button ng-click="createTask()">Create</button>
+
 
 <div class="tasklist-body">
 	<ul ng-repeat="task in tasklist">
-		<li ng-hide="task.timestamp > expirationDate"> {{ task.body }} </li>
+		<li ng-show="task.completed === true || task.timestamp > expirationDate">
+			{{ task.body }}
+		</li>
 	</ul>
 </div>
