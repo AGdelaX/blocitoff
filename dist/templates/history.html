@@ -2,8 +2,12 @@
 
 <div class="tasklist-body">
 	<ul ng-repeat="task in tasklist">
-		<li ng-show="task.completed === true || task.timestamp > expirationDate">
+		<li ng-show="task.completed === true || task.timestamp < expirationDate">
+		<div class="message-section">
 			{{ task.body }}
+		</div>
+			<button ng-click="removeTask(task)">Remove</button>
 		</li>
 	</ul>
 </div>
+

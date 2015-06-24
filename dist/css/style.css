@@ -1,2 +1,87 @@
-.header {
-  background-color: Grey; }
+* {
+  box-sizing: border-box; }
+
+html {
+  background-image: url('http://data.hdwallpapers.im/fog_in_yosemite_valley.jpg');
+  ‑webkit‑text‑size‑adjust: none;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+body {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  position: relative;
+  width: 100%; }
+
+h1 {
+  font-family: 'Droid Serif', serif;
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 15px; }
+
+li {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white; }
+
+a {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  text-decoration: none; }
+
+.tasklist-body {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  margin-top: 15px; }
+
+input {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  width: calc(100% - 162px);
+  height: 30px;
+  padding: 10px; }
+
+::-webkit-input-placeholder {
+  color: white; }
+
+select {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: 0;
+  outline: 1px solid white;
+  height: 28px; }
+
+button {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  height: 30px;
+  display: inline-block; }
+
+.tasklist-body:empty {
+  display: none; }
+
+#home-button {
+  display: inline-block;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 5px; }
+  #home-button a:active {
+    background-color: white; }
+
+#history-button {
+  display: inline-block;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 5px; }
+  #history-button a:active {
+    background-color: white; }
+
+.message-section {
+  width: 240px;
+  display: inline-block; }

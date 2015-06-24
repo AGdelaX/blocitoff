@@ -38,6 +38,12 @@ blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($s
 
 	$scope.tasklist = Tasks.tasks;
 
+	$scope.removeTask = function(task){
+
+		$scope.tasklist.$remove(task);
+		
+	}
+
 	// $scope.message = "testing";
 	$scope.hideTime = false;
 
@@ -50,9 +56,11 @@ blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($s
 
 	$scope.prioritySelector = null;
 
-	var week = 60 * 60 * 24 * 7;
+	var week = 1000 * 60 * 60 * 24 * 7;
 
 	$scope.createTask = function(){
+
+		if ($scope.taskForm !== null) {
 
 		var currentTime = Date.now();
 
@@ -61,9 +69,11 @@ blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($s
 		$scope.tasklist.$add( {
 			body: $scope.taskForm,
 			completed: false,
-			timestamp: currentTime + 60000,
+			timestamp: currentTime + week,
 			priority: $scope.prioritySelector
 		});
+
+		}
 
 
 	};
@@ -81,7 +91,7 @@ blocItOff.controller('TasklistView', ['$scope', 'Tasks', '$timeout', function($s
 
 		console.log('after', $scope.tasklist);
 
-		
+
 	};
 
 	// if Date.now > scope.timeTaskWasMade+timePassed
